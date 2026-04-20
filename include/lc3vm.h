@@ -75,6 +75,9 @@ extern uint16_t PC_START;
 
 // your task functions should go here
 
+void st(uint16_t i);
+void sti(uint16_t i);
+void str(uint16_t i);
 void ld(uint16_t i);
 void ldi(uint16_t i);
 void ldr(uint16_t i);
