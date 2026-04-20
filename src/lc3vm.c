@@ -162,7 +162,19 @@ void update_flags(enum registr r)
  *   instruction.
  */
 // put your implememtation of add() here below it documentation
+void add(uint16_t i)
+{
+  if (FIMM(i))
+  {
+    reg[DR(i)] = reg[SR1(i)] + SEXTIMM(i);
+  }
+  else
+  {
+    reg[DR(i)] = reg[SR1(i)] + reg[SR2(i)];
+  }
 
+  update_flags(DR(i));
+}
 /** @brief logical AND operation
  *
  * Compute the logical AND of 2 16 bit values and store the result in
@@ -183,7 +195,19 @@ void update_flags(enum registr r)
  *   instruction.
  */
 // put your implememtation of andlc() here below it documentation
+void andlc(uint16_t i)
+{
+  if (FIMM(i))
+  {
+    reg[DR(i)] = reg[SR1(i)] & SEXTIMM(i);
+  }
+  else
+  {
+    reg[DR(i)] = reg[SR1(i)] & reg[SR2(i)];
+  }
 
+  update_flags(DR(i));
+}
 /** @brief logical NOT operation
  *
  * Perform a logical NOT on the indicated source register and save the
@@ -197,7 +221,11 @@ void update_flags(enum registr r)
  *   instruction.
  */
 // put your implememtation of notlc() here below it documentation
-
+void notlc(uint16_t i)
+{
+  reg[DR(i)] = ~reg[SR1(i)];
+  update_flags(DR(i));
+}
 /** @brief load RPC + offset
  *
  * Load a value from memory calculated as some offset from the current

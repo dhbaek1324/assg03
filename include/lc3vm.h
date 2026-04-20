@@ -75,6 +75,9 @@ extern uint16_t PC_START;
 
 // your task functions should go here
 
+void add(uint16_t i);
+void andlc(uint16_t i);
+void notlc(uint16_t i);
 void update_flags(enum registr r);
 uint16_t sign_extend(uint16_t bits, int size);
 uint16_t mem_read(uint16_t address);
