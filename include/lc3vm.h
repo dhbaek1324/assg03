@@ -67,6 +67,7 @@ extern uint16_t PC_START;
 
 // your task functions should go here
 
+uint16_t sign_extend(uint16_t bits, int size);
 uint16_t mem_read(uint16_t address);
 void mem_write(uint16_t address, uint16_t value);
 void rti(uint16_t i);
